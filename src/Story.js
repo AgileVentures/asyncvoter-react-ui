@@ -7,7 +7,12 @@ class Story extends Component {
 
     render() {
       return (
-        <li>{this.props.title}</li>
+        <div className="individual-story">
+          <li>Title: {this.props.title}</li>
+          <li>Votes: {this.props.votes} </li>
+          <li>URL: <a target='_blank' href={this.props.url}>{this.props.url}</a></li>
+        <br></br>
+        </div>
       )
     }
 }

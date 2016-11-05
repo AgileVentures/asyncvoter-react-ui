@@ -7,22 +7,25 @@ class Stories extends Component {
    constructor(props) {
     super(props);
     this.state = {'stories': waffleData };
-    this.mapStoryItems = this.mapStoryItems.bind(this)
+    this.mapOpenStoryItems = this.mapOpenStoryItems.bind(this)
    }
 
-    mapStoryItems(){
+    mapOpenStoryItems(){
      return this.state.stories.map((story) => {
+       if(story.githubMetadata.state=="open"){
         return <Story
                   key={story.id}
                   title={story.githubMetadata.title}
-                  url={story.githubMetadata.url} />
-      })
+                  votes={story.__v}
+                  url={story.githubMetadata.html_url} />
+       }
+     })
     }
 
     render() {
       return (
         <ul>
-          {this.mapStoryItems()}
+          {this.mapOpenStoryItems()}
         </ul>
       )
     }
