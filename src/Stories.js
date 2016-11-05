@@ -7,25 +7,20 @@ class Stories extends Component {
    constructor(props) {
     super(props);
     this.state = {'stories': waffleData };
+    this.storyItems = this.storyItems.bind(this);
    }
 
-   // storyItems(){
-   //   this.state.stories.map((story) => {
-   //    return (
-   //    <Story
-   //      id={story.id}
-   //      url={story.githubMetadata.html_url}
-   //      title={story.githubMetadata.title}
-   //      state={story.githubMetadata.state}
-   //      voteCount={story.__v}
-   //    >
-   //    )
-   //   }
-   // }
+   storyItems(){
+     return waffleData[0]
+   }
 
     render() {
       return (
-        <ul><Story /></ul>
+        <ul>
+          {this.state.stories.map((story) => {
+            return <Story key={story.id} title={story.githubMetadata.title} />
+          })}
+        </ul>
       )
     }
 }
