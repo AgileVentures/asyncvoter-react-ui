@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+li {
+    list-style-type: none;
+}
+
+.individual-story{
+  width: 30%;
+  height: 30%;
+  border: groove;
+  margin-bottom: 15px;
+}
+
