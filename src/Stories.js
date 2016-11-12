@@ -21,7 +21,7 @@ class Stories extends Component {
 
     mapOpenStoryItems(){
      return this.state.stories.map((story, i) => {
-       if(story.githubMetadata.state=="open" && i < 1){
+       if(story.githubMetadata.state=="open"){
         return <Story
                   key={i}
                   title={story.githubMetadata.title}
