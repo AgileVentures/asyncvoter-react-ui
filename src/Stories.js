@@ -13,7 +13,7 @@ class Stories extends Component {
    componentDidMount(){
      var that = this;
      request
-      .get('http://master.async_voter_production.app.push.drieapp.co/stories?state=active')
+      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories?state=active')
       .end(function(err, res){
        that.setState({"stories": JSON.parse(res.text)})
       })
