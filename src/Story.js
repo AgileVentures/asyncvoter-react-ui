@@ -5,13 +5,15 @@ class Story extends Component {
     constructor(props){
       super(props);
       this.state = {"vote": this.props.votes};
+      this.sendVote = this.sendVote.bind(this)
     }
 
     sendVote(vote){
       alert("Thanks for your vote")
       let voteParams = vote.toString()
+      let storyId = this.props.id
       this.setState({"vote": voteParams})
-      request.put('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/5831d6ae2c42ad002d5deea7')
+      request.put('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId)
       .set('Content-Type', 'application/json')
       .send({size: voteParams})
       .end(function(err, res){

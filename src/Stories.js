@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import waffleData from './data/stories.js'
 import Story from './Story.js'
 import request from 'superagent'
 
@@ -24,21 +23,21 @@ class Stories extends Component {
       })
    }
 
-    mapOpenStoryItems(){
-      if(this.state.stories.length > 0 ){
-        return <Story
-                  title={this.state.stories[2].name}
-                  votes={this.state.stories[2].size}
-                  url={this.state.stories[2].url}
-                  update={this.updateComponent}
-                  id={this.state.stories[2]._id} />
-      }
-    }
-
     render() {
+      if(this.state.stories.length > 0 ){
+      var storyItems = this.state.stories.map((story) => {
+        return <Story
+                  key={story.id}
+                  title={story.name}
+                  votes={story.size}
+                  url={story.url}
+                  update={this.updateComponent}
+                  id={story._id} />
+      })
+      }
       return (
         <ul>
-          {this.mapOpenStoryItems()}
+          {storyItems}
         </ul>
       )
     }
