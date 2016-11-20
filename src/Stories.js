@@ -8,9 +8,14 @@ class Stories extends Component {
    constructor(props) {
     super(props);
     this.state = {'stories': [], 'currentVote': [] };
+    this.updateComponent = this.updateComponent.bind(this)
    }
 
    componentDidMount(){
+     this.updateComponent()
+   }
+
+   updateComponent(){
      var that = this;
      request
       .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories')
@@ -25,6 +30,7 @@ class Stories extends Component {
                   title={this.state.stories[2].name}
                   votes={this.state.stories[2].size}
                   url={this.state.stories[2].url}
+                  update={this.updateComponent}
                   id={this.state.stories[2]._id} />
       }
     }
