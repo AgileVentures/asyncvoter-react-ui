@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
+import request from 'superagent'
 
 class Story extends Component {
     constructor(props){
       super(props);
     }
 
-    // sendVote(){
-    //   fetch('https://api.waffle.io/cards/5825a9ed9a9ad41e008b1570', {
-    //       method: 'PUT'
-    //     })
-    //     .then((response) => {
-    //     return response.json()
-    //   }).then((stories) =>{
-    //     this.setState({'stories': stories, 'currentVote': stories[0]})
-    //   })
-    //   console.log("I HAVE VOTED")
-    // }
+    sendVote(){
+      console.log("SENT")
+      var that = this
+      request.put('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/5831d6ae2c42ad002d5deea7')
+      .set('Content-Type', 'application/json')
+      .send('{"size": "10"}')
+      .end(function(err, res){
+        console.log(res)
+      })
+    }
 
     render() {
       return (

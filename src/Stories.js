@@ -13,7 +13,7 @@ class Stories extends Component {
    componentDidMount(){
      var that = this;
      request
-      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories?state=active')
+      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories')
       .end(function(err, res){
        that.setState({"stories": JSON.parse(res.text)})
       })
@@ -22,10 +22,10 @@ class Stories extends Component {
     mapOpenStoryItems(){
       if(this.state.stories.length > 0 ){
         return <Story
-                  title={this.state.stories[0].name}
-                  votes={this.state.stories[0].size}
-                  url={this.state.stories[0].url}
-                  id={this.state.stories[0]._id} />
+                  title={this.state.stories[2].name}
+                  votes={this.state.stories[2].size}
+                  url={this.state.stories[2].url}
+                  id={this.state.stories[2]._id} />
       }
     }
 
