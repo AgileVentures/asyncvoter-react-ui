@@ -63,6 +63,8 @@ class Story extends Component {
           <button onClick={() => this.sendVote(1)}>Vote 1 </button>
           <button onClick={() => this.sendVote(2)}>Vote 2 </button>
           <button onClick={() => this.sendVote(3)}>Vote 3 </button>
+          <button onClick={() => this.sendVote(4)}>Vote 4 </button>
+          <button onClick={() => this.sendVote(5)}>Vote 5 </button>
         <br></br>
         </div>
       )

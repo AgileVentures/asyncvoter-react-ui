@@ -33,9 +33,11 @@ class Stories extends Component {
       })
       }
       return (
+        <div>
         <ul>
           {storyItems}
         </ul>
+        </div>
       )
     }
 }
