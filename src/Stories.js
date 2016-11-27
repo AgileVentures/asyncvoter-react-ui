@@ -28,11 +28,8 @@ class Stories extends Component {
       var storyItems = this.state.stories.map((story) => {
         return <Story
                   key={story.id}
-                  title={story.name}
-                  votes={story.size}
-                  url={story.url}
-                  update={this.updateComponent}
-                  id={story._id} />
+                  story={story}
+                  update={this.updateComponent} />
       })
       }
       return (

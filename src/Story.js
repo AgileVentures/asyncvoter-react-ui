@@ -11,7 +11,7 @@ class Story extends Component {
     sendVote(vote){
       alert("Thanks for your vote")
       let voteParams = vote.toString()
-      let storyId = this.props.id
+      let storyId = this.props.story._id
       this.setState({"vote": voteParams})
       request.put('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId)
       .set('Content-Type', 'application/json')
@@ -24,10 +24,10 @@ class Story extends Component {
     render() {
       return (
         <div className="individual-story">
-          <li>Title: {this.props.title}</li>
-          <li>Votes: {this.props.votes} </li>
-          <li>URL: <a target='_blank' href={this.props.url}>{this.props.url}</a></li>
-          <li>ID: {this.props.id} </li>
+          <li>Title: {this.props.story.name}</li>
+          <li>Votes: {this.props.story.size} </li>
+          <li>URL: <a target='_blank' href={this.props.story.url}>{this.props.story.url}</a></li>
+          <li>ID: {this.props.story._id} </li>
           <button onClick={() => this.sendVote(1)}>Vote 1 </button>
           <button onClick={() => this.sendVote(2)}>Vote 2 </button>
           <button onClick={() => this.sendVote(3)}>Vote 3 </button>
