@@ -13,7 +13,7 @@ class Story extends Component {
       let voteParams = vote.toString()
       let storyId = this.props.story._id
       this.setState({"vote": voteParams})
-      request.put('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId)
+      request.post('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId + "/votes")
       .set('Content-Type', 'application/json')
       .send({size: voteParams})
       .end(function(err, res){
