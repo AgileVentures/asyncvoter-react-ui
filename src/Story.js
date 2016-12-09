@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import request from 'superagent'
+import './App.css';
 
 class Story extends Component {
     constructor(props){
@@ -13,15 +14,16 @@ class Story extends Component {
       let voteParams = vote.toString()
       let storyId = this.props.story._id
       this.setState({"vote": voteParams})
+      let that = this;
       request.post('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId + "/votes")
       .set('Content-Type', 'application/json')
       .send({size: voteParams})
       .end(function(err, res){
+        that.fetchVotes()
       })
-      this.props.update()
     }
 
-    componentDidMount(){
+    fetchVotes(){
       this.fetchNumberOfVotes()
       this.averageVote()
     }
