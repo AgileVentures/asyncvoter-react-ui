@@ -24,6 +24,6 @@
 }
 
 .individual-story {
-  display: in-line;
+  display: inline-block;
   margin:17px;
 }

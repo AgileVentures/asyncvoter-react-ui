@@ -28,6 +28,10 @@ class Story extends Component {
       this.averageVote()
     }
 
+    componentDidMount(){
+      this.fetchVotes()
+    }
+
     fetchNumberOfVotes(){
      var that = this;
      let storyId = this.props.story._id
