@@ -17,7 +17,7 @@ class Stories extends Component {
    updateComponent(){
      var that = this;
      request
-      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories')
+       .get('http://api-production.asyncvoter.agileventures.org/stories')
       .end(function(err, res){
        that.setState({"stories": JSON.parse(res.text)})
       })

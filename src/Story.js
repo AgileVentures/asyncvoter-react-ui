@@ -13,7 +13,7 @@ class Story extends Component {
       let voteParams = vote.toString()
       let storyId = this.props.story._id
       this.setState({"vote": voteParams})
-      request.post('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId + "/votes")
+      request.post('http://api-production.asyncvoter.agileventures.org/stories/' + storyId + "/votes")
       .set('Content-Type', 'application/json')
       .send({size: voteParams})
       .end(function(err, res){
@@ -30,7 +30,7 @@ class Story extends Component {
      var that = this;
      let storyId = this.props.story._id
      request
-      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId + "/votes")
+      .get('http://api-production.asyncvoter.agileventures.org/stories/' + storyId + "/votes")
       .end(function(err, res){
        that.setState({"voteCount": res.body.length})
       })
@@ -40,7 +40,7 @@ class Story extends Component {
      var that = this;
      let storyId = this.props.story._id
      request
-      .get('http://master.bass-seahorse-cod.app.push.drieapp.co/stories/' + storyId + "/votes")
+      .get('http://api-production.asyncvoter.agileventures.org/stories/' + storyId + "/votes")
       .end(function(err, res){
         let totalVotes = 0
         let response = JSON.parse(res.text)
@@ -56,7 +56,7 @@ class Story extends Component {
       return (
         <div className="individual-story">
           <li>Title: {this.props.story.name}</li>
-          <li><a href={"http://master.bass-seahorse-cod.app.push.drieapp.co/stories/" + this.props.story._id + "/votes"}>Votes: {this.state.voteCount}</a></li>
+          <li><a href={"http://api-production.asyncvoter.agileventures.org/stories/" + this.props.story._id + "/votes"}>Votes: {this.state.voteCount}</a></li>
           <li>Average Vote: {this.state.voteAverage}</li>
           <li>URL: <a target='_blank' href={this.props.story.url}>{this.props.story.url}</a></li>
           <li>ID: {this.props.story._id} </li>
