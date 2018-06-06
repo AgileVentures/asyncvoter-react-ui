@@ -27,7 +27,7 @@ class Stories extends Component {
       if(this.state.stories.length > 0 ){
       var storyItems = this.state.stories.map((story) => {
         return <Story
-                  key={story.id}
+                  key={story._id}
                   story={story}
                   update={this.updateComponent} />
       })
