@@ -45,9 +45,10 @@ class Story extends Component {
         let totalVotes = 0
         let response = JSON.parse(res.text)
         response.forEach((vote) => {
-          totalVotes+= parseInt(vote.size)
+          totalVotes+= parseInt(vote.size, 10)
         })
         let average = totalVotes / response.length
+        if (isNaN(average)) {average = 0}
         that.setState({"voteAverage": average})
       })
     }
