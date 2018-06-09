@@ -3,6 +3,8 @@ import Stories from './Stories.js'
 import logo from './logo.svg';
 import './App.css';
 
+window.baseApiUrl = 'http://api-production.asyncvoter.agileventures.org'
+
 class App extends Component {
   render() {
     return (
