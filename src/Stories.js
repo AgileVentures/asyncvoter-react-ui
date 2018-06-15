@@ -17,7 +17,7 @@ class Stories extends Component {
    updateComponent(){
      var that = this;
      request
-       .get('http://api-production.asyncvoter.agileventures.org/stories')
+       .get(window.baseApiUrl + '/stories')
       .end(function(err, res){
        that.setState({"stories": JSON.parse(res.text)})
       })
